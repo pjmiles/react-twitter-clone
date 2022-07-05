@@ -9,7 +9,7 @@ const SideBar = () => {
   return (
     <div className="sidebar">
         <FaTwitter className="sidebar-twitter-icon"/>
-    <SideBarOptions Icon={FaHome} text="Home"/>
+    <SideBarOptions Icon={FaHome} text="Home" active/>
     <SideBarOptions Icon={FaHashtag} text="Explore"/>
     <SideBarOptions Icon={FaBell} text="Notifications"/>
     <SideBarOptions Icon={FaEnvelope} text="Messages"/>

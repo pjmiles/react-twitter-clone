@@ -22,3 +22,8 @@
     margin-right: 20px;
  }
  
+/* for active props in sidebar */
+.sidebar-options--active {
+   color: var(--twitter-color);
+
+}

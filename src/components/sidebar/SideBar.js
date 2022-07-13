@@ -6,6 +6,7 @@ import './SideBar.css'
 import SideBarOptions from '../sidebarOptions/SideBarOptions';
 
 const SideBar = () => {
+
   return (
     <div className="sidebar">
         <FaTwitter className="sidebar-twitter-icon"/>
@@ -15,7 +16,7 @@ const SideBar = () => {
     <SideBarOptions Icon={FaEnvelope} text="Messages"/>
     <SideBarOptions Icon={FaBookmark} text="Bookmarks"/>
     <SideBarOptions Icon={IoMdListBox} text="Lists"/>
-    <SideBarOptions Icon={CgProfile} text="Profile"/>
+    <SideBarOptions Icon={CgProfile} text="Profile" />
     <SideBarOptions Icon={CgMoreO} text="More"/>
     <button className='sidebar-tweet-btn'>Tweet</button>
     </div>

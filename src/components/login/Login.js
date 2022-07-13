@@ -1,4 +1,5 @@
 import { FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom"
 import "./Login.css";
 
 const Login = () => {
@@ -27,7 +28,7 @@ const Login = () => {
               Login
             </button>
           </div>
-          <span className="login-note">Forgot password <a href="">click here</a></span>
+          <span className="login-note">Forgot password <Link to="/signup">click here</Link></span>
         </form>
       </div>
     </div>

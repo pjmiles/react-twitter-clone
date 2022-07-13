@@ -1,7 +1,7 @@
 .sidebar {
     border-right: 1px solid var(--twitter-background);
     flex: 0.3;
-    min-width: 100px;
+    min-width: 220px;
     margin-left: 20px;
 }
 

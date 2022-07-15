@@ -1,12 +1,9 @@
 import "./ProfileHeader.css";
-import SideBar from "../sidebar/SideBar";
-import Widgets from "../widgets/Widgets";
 import { Link } from "react-router-dom";
 
 const ProfileHeader = () => {
   return (
     <>
-      <SideBar />
       <div className="profile">
         <div className="profile-head">
           <div className="profile-image-container">
@@ -38,7 +35,6 @@ const ProfileHeader = () => {
           </h5>
         </div>
       </div>
-      <Widgets />
     </>
   );
 };

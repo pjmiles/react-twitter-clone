@@ -1,12 +1,20 @@
-import './App.css';
-import SideBar from './components/sidebar/SideBar';
-import Feed from './components/Feed/Feed';
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Feed from "./components/Feed/Feed";
+import SideBar from "./components/sidebar/SideBar";
+import Widgets from "./components/widgets/Widgets";
+import ProfileHeader from './components/profile/ProfileHeader'
+
 
 function App() {
   return (
     <div className="app">
       <SideBar />
-      <Feed />
+      <Routes>
+        <Route path="/" element={<Feed />} />
+        <Route path="/profile" element={<ProfileHeader />}/>
+      </Routes>
+      <Widgets />
     </div>
   );
 }

@@ -1,0 +1,45 @@
+.post {
+    display: flex;
+    align-items: flex-start;
+}
+
+.post-body {
+    flex: 1;
+    padding: 10px;
+}
+
+.post-avatar {
+    padding: 20px;
+}
+
+.post-body > img {
+    border-radius: 20px;
+    width: 100%;   
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.post-badge {
+    font-size: 14px;
+    color: var(--twitter-color);
+}
+
+.post-header-text > h3 {
+    font-size: 15px;
+    margin-bottom: 5px;  
+}
+
+.post-header-special {
+    font-weight: 600;
+    font-size: 12px;
+    color: gray;
+}
+
+.post-header-description {
+    margin-bottom: 10px;
+    font-size: 15px;
+}

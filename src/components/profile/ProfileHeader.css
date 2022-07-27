@@ -64,3 +64,19 @@
     margin-top: 81px;
     cursor: pointer;
 }
+
+.feeds-contain {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.feed-item {
+    cursor: pointer;
+    font-size: 17px;
+    margin-top: 15px;
+}
+
+.feed-item:hover {
+    border-bottom: 2px solid var(--twitter-color);
+}

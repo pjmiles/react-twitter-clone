@@ -17,14 +17,14 @@ const Login = () => {
         <form className="login-centered">
           <div className="input-container">
             <label htmlFor="username"></label>
-            <input type="text" className="login-input" placeholder="username" required />
+            <input type="text" className="login-input" placeholder="username" id="username" required />
           </div>
           <div className="input-container">
-            <label htmlFor="username"></label>
-            <input type="password" className="login-input" placeholder="password" required />
+            <label htmlFor="password"></label>
+            <input type="password" className="login-input" placeholder="password" id="password" required />
           </div>
           <div className="login-btn-container">
-            <button type="submit" className="login-input-btn">
+            <button className="login-input-btn">
               Login
             </button>
           </div>

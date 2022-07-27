@@ -1,7 +1,23 @@
 import "./SignUp.css";
 import { FaTwitter } from "react-icons/fa";
+import { useState } from "react";
 
 const SignUp = () => {
+  const [user, setUser] = useState({
+    name:"",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  })
+
+  const getUserDetails = () => {
+    setUser((state)=>({ 
+      ...state, [e.target.id]: e.target.value
+    }))
+  }
+
+
   return (
     <div className="signup-conatiner">
       <div className="signup-split signup-left">
@@ -20,6 +36,8 @@ const SignUp = () => {
                 type="text"
                 className="signup-input"
                 placeholder="name"
+                id="name"
+                onChange={getUserDetails}
                 required
               />
             </label>
@@ -30,6 +48,8 @@ const SignUp = () => {
                 type="text"
                 className="signup-input"
                 placeholder="username"
+                id="username"
+                onChange={getUserDetails}
                 required
               />
             </label>
@@ -40,6 +60,8 @@ const SignUp = () => {
                 type="email"
                 className="signup-input"
                 placeholder="email"
+                id="email"
+                onChange={getUserDetails}
               />
             </label>
           </div>
@@ -49,7 +71,8 @@ const SignUp = () => {
                 type="date"
                 className="signup-input"
                 placeholder="DOB"
-                required
+                id="dateOfBirth"
+                onChange={getUserDetails}
               />
             </label>
           </div>
@@ -59,6 +82,8 @@ const SignUp = () => {
                 type="password"
                 className="signup-input"
                 placeholder="password"
+                id="password"
+                onChange={getUserDetails}
                 required
               />
             </label>
@@ -70,6 +95,8 @@ const SignUp = () => {
                 type="Password"
                 className="signup-input"
                 placeholder="confirm password"
+                id="confirmPassword"
+                onChange={getUserDetails}
                 required
               />
             </label>

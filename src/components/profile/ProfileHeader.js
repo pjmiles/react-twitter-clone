@@ -13,8 +13,8 @@ const ProfileHeader = () => {
               alt="profile pics"
             />
             <span className="profile-name">
-              <h4 className="profile-name-head">Alex Rohr</h4>
-              <h6 className="profile-name-follow">@alexrohr</h6>
+              <h1 className="profile-name-head">Alex Rohr</h1>
+              <h2 className="profile-name-follow">@alexrohr</h2>
             </span>
           </div>
           <div className="profile-info">
@@ -22,9 +22,9 @@ const ProfileHeader = () => {
           </div>
         </div>
         <div className="profile-description">
-          <h4 className="profile-description-text">
+          <h3 className="profile-description-text">
             Software Engineer | Business developer | Product designer
-          </h4>
+          </h3>
         </div>
         <div className="profile-follows">
           <h5>
@@ -33,6 +33,15 @@ const ProfileHeader = () => {
           <h5>
             <Link to="">120 Followers</Link>
           </h5>
+        </div>
+        <div className="profile-feeds">
+          <ul className="feeds-contain">
+            <li className="feed-item">Tweets</li>
+            <li className="feed-item">Tweets &amp; replies</li>
+            <li className="feed-item">Media</li>
+            <li className="feed-item">Likes</li>
+          </ul>
+
         </div>
       </div>
     </>

@@ -23,16 +23,6 @@ const SignUp = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    if (user.password !== user.password_confirmation) {
-      setErrMsg("Password does not match");
-      setSuccess(false);
-    } else {
-      postRequest();
-      setSuccess(true);
-    }
-  };
-
   const postRequest = async () => {
     try {
       await axiosInstanceReg.post("/register", user);
@@ -43,6 +33,17 @@ const SignUp = () => {
       setSuccess(false);
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (user.password !== user.password_confirmation) {
+      setErrMsg("Password does not match");
+      setSuccess(false)
+    } else {
+      postRequest();
+    }
+  };
+
 
   return (
     <>

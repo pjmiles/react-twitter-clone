@@ -10,3 +10,7 @@ export const axiosInstanceReg = axios.create({
     //   },
 })
 
+export const axiosInstanceLog = axios.create({
+    baseURL: baseURL
+})
+

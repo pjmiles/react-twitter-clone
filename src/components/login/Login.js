@@ -28,7 +28,7 @@ const Login = () => {
               Login
             </button>
           </div>
-          <span className="login-note">Forgot password <Link to="/signup">click here</Link></span>
+          <span className="login-note">Forgot password <Link to="">click here</Link></span>
         </form>
       </div>
     </div>

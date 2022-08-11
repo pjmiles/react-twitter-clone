@@ -5,7 +5,7 @@ import { axiosInstanceReg } from "../api/axios";
 import Login from "../login/Login";
 
 const SignUp = () => {
-  const [user, setUser] = useState({
+  const [details, setDetails] = useState({
     first_name: "",
     last_name: "",
     username: "",
@@ -17,7 +17,7 @@ const SignUp = () => {
   const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
-    setUser((state) => ({
+    setDetails((state) => ({
       ...state,
       [e.target.name]: e.target.value.trim(),
     }));
@@ -25,7 +25,7 @@ const SignUp = () => {
 
   const postRequest = async () => {
     try {
-      await axiosInstanceReg.post("/register", user);
+      await axiosInstanceReg.post("/register", details);
       setSuccess(true);
     } catch (err) {
       console.log(err);
@@ -36,12 +36,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (user.password !== user.password_confirmation) {
-      setErrMsg("Password does not match");
-      setSuccess(false)
-    } else {
-      postRequest();
-    }
+      postRequest()
   };
 
 
@@ -72,7 +67,7 @@ const SignUp = () => {
                     placeholder="first name"
                     id="first_name"
                     name="first_name"
-                    value={user.first_name}
+                    value={details.first_name}
                     onChange={handleChange}
                     required
                   />
@@ -86,7 +81,7 @@ const SignUp = () => {
                     placeholder="last name"
                     id="last_name"
                     name="last_name"
-                    value={user.last_name}
+                    value={details.last_name}
                     onChange={handleChange}
                     required
                   />
@@ -100,7 +95,7 @@ const SignUp = () => {
                     placeholder="username"
                     id="username"
                     name="username"
-                    value={user.username}
+                    value={details.username}
                     onChange={handleChange}
                     required
                   />
@@ -114,7 +109,7 @@ const SignUp = () => {
                     placeholder="email"
                     id="email"
                     name="email"
-                    value={user.email}
+                    value={details.email}
                     onChange={handleChange}
                   />
                 </label>
@@ -127,7 +122,7 @@ const SignUp = () => {
                     placeholder="password"
                     id="password"
                     name="password"
-                    value={user.password}
+                    value={details.password}
                     onChange={handleChange}
                     required
                   />
@@ -142,7 +137,7 @@ const SignUp = () => {
                     placeholder="confirm password"
                     id="password_confirmation"
                     name="password_confirmation"
-                    value={user.password_confirmation}
+                    value={details.password_confirmation}
                     onChange={handleChange}
                     required
                   />

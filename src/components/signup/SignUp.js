@@ -35,10 +35,9 @@ const SignUp = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-      postRequest()
+    e.preventDefault();
+    postRequest();
   };
-
 
   return (
     <>
@@ -56,9 +55,11 @@ const SignUp = () => {
           <div className="signup-split signup-right">
             <h2 className="signup-form-header">Signup</h2>
             <form className="signup-centered" onSubmit={handleSubmit}>
-              <div className="signup-err">
-                <span className="signup-error">{errMsg}</span>
-              </div>
+              {errMsg && (
+                <div className="signup-err">
+                  <span className="signup-error">{errMsg}</span>
+                </div>
+              )}
               <div className="signup-input-container">
                 <label htmlFor="first_name" className="signup-label">
                   <input

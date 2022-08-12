@@ -80,3 +80,11 @@
      color: white;
      font-size: 18px;
 }
+
+.log-error-container {
+    text-align: center;
+}
+
+.log-error {
+    color: var(--error)
+}

@@ -29,16 +29,18 @@ const Login = () => {
     <div className="login">
       <div className="login-split login-left">
         <div className="login-centered">
-          <h2>Twitter</h2>
+          <h1>Twitter</h1>
           <FaTwitter className="login-logo" />
         </div>
       </div>
 
       <div className="login-split login-right">
-        <div className="log-error-container">
-          <p className="log-error">{logErr}</p>
-        </div>
-        <h1 className="login-header">Login</h1>
+        {logErr && (
+          <div className="log-error-container">
+            <p className="log-error">{logErr}</p>
+          </div>
+        )}
+        <h2 className="login-header">Login</h2>
         <form className="login-centered" onSubmit={handleSubmit}>
           <div className="input-container">
             <label htmlFor="username" />

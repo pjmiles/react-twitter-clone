@@ -85,3 +85,13 @@
 .signup-error{
     color: var(--error);
 }
+
+.signup-note {
+    color: var(--twitter-color);
+    font-size: 18px;
+}
+
+.signup-click {
+    color: var(--click);
+    cursor: pointer;
+}

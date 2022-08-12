@@ -5,6 +5,7 @@ import { axiosInstanceReg } from "../api/axios";
 import Login from "../login/Login";
 
 const SignUp = () => {
+  const [openModal, setOpenModal] = useState(false);
   const [details, setDetails] = useState({
     first_name: "",
     last_name: "",
@@ -15,6 +16,10 @@ const SignUp = () => {
   });
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const handleOpen = () => {
+    setOpenModal(true); //to toggle between signup and login
+  };
 
   const handleChange = (e) => {
     setDetails((state) => ({
@@ -147,10 +152,17 @@ const SignUp = () => {
               <div className="signup-button">
                 <button className="signup-btn">submit</button>
               </div>
+              <span className="signup-note">
+                Already have account{" "}
+                <span className="signup-click" onClick={handleOpen}>
+                  click here
+                </span>
+              </span>
             </form>
           </div>
         </div>
       )}
+      {openModal && <Login closeModal={setOpenModal} />}
     </>
   );
 };

@@ -4,7 +4,6 @@ import Feed from "./components/Feed/Feed";
 import SideBar from "./components/sidebar/SideBar";
 import Widgets from "./components/widgets/Widgets";
 import ProfileHeader from "./components/profile/ProfileHeader";
-// import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
 import { useState } from "react";
 
@@ -13,7 +12,6 @@ function App() {
 
   return (
     <div className="app">
-    
       {authUser ? (
         <>
           <SideBar />

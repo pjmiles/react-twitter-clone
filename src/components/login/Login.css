@@ -88,3 +88,8 @@
 .log-error {
     color: var(--error)
 }
+
+.login-click {
+    color: var(--click);
+    cursor: pointer;
+}

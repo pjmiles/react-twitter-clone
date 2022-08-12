@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { axiosInstanceLog } from "../api/axios";
 import "./Login.css";
 
-const Login = () => {
+const Login = ({ closeModal }) => {
   const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [logErr, setLogErr] = useState("");
 
@@ -72,7 +71,10 @@ const Login = () => {
             <button className="login-input-btn">Login</button>
           </div>
           <span className="login-note">
-            Forgot password <Link to="">click here</Link>
+            No account{" "}
+            <span className="login-click" onClick={() => closeModal(false)}>
+              click here
+            </span>
           </span>
         </form>
       </div>

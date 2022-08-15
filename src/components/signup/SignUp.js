@@ -162,7 +162,7 @@ const SignUp = () => {
           </div>
         </div>
       )}
-      {openModal && <Login closeModal={setOpenModal} />}
+      {openModal && <Login closeModal={() => setOpenModal(false)} />}
     </>
   );
 };

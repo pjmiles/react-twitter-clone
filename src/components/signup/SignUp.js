@@ -2,7 +2,7 @@ import "./SignUp.css";
 import { FaTwitter } from "react-icons/fa";
 import { useState } from "react";
 import { axiosInstanceReg } from "../api/axios";
-import Login from "../login/Login";
+import Login from "../login/LoginForm";
 
 const SignUp = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -94,12 +94,12 @@ const SignUp = () => {
                 </label>
               </div>
               <div className="signup-input-container">
-                <label htmlFor="username" className="signup-label">
+                <label htmlFor="signup_username" className="signup-label">
                   <input
                     type="text"
                     className="signup-input"
                     placeholder="username"
-                    id="username"
+                    id="signup_username"
                     name="username"
                     value={details.username}
                     onChange={handleChange}
@@ -121,12 +121,12 @@ const SignUp = () => {
                 </label>
               </div>
               <div className="signup-input-container">
-                <label htmlFor="password" className="signup-label">
+                <label htmlFor="signup_password" className="signup-label">
                   <input
                     type="password"
                     className="signup-input"
                     placeholder="password"
-                    id="password"
+                    id="signup_password"
                     name="password"
                     value={details.password}
                     onChange={handleChange}

@@ -19,8 +19,7 @@ const LoginForm = ({ setAuthUser, closeModal }) => {
     try {
       const { data } = await axiosInstanceLog.post("login", logDetails);
       localStorage.setItem("logDetails", JSON.stringify(data));
-      // props?.LoggedIn();
-      setAuthUser(true);
+      setAuthUser(true)
     } catch (e) {
       setLogErr("Invalid login details");
       console.log(e);

@@ -3,7 +3,7 @@ import { FaTwitter } from "react-icons/fa";
 import { axiosInstanceLog } from "../api/axios";
 import "./LoginForm.css";
 
-const LoginForm = ({ setAuthUser, closeModal }) => {
+const LoginForm = ({ setAuthUser, closeLoginModal }) => {
   const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [logErr, setLogErr] = useState("");
 
@@ -82,7 +82,7 @@ const LoginForm = ({ setAuthUser, closeModal }) => {
             </div>
             <span className="login-note">
               No account{" "}
-              <span className="login-click" onClick={() => closeModal(false)}>
+              <span className="login-click" onClick={() => closeLoginModal(false)}>
                 click here
               </span>
             </span>

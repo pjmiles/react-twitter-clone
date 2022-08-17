@@ -4,8 +4,7 @@ import { useState } from "react";
 import { axiosInstanceReg } from "../api/axios";
 import LoginForm from "../login/LoginForm";
 
-const SignUp = () => {
-  const [openModal, setOpenModal] = useState(false);
+const SignUp = ({ openModal, setOpenModal }) => {
   const [details, setDetails] = useState({
     first_name: "",
     last_name: "",
@@ -162,7 +161,7 @@ const SignUp = () => {
           </div>
         </div>
       )}
-      {openModal && <LoginForm closeModal={() => setOpenModal(false)} />}
+      {openModal && <LoginForm closeLoginModal={() => setOpenModal(false)} />}
     </>
   );
 };

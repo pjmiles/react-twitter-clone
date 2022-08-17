@@ -73,7 +73,7 @@ const ProfileHeader = ({ closeEditModal }) => {
           </ul>
         </div>
       </div>
-      {openEditModal && <ProfileEdit closeEditModal={setOpenEditModal} />}
+      {openEditModal && <ProfileEdit closeEditModal={() => setOpenEditModal(false)} />}
     </>
   );
 };

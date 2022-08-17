@@ -5,6 +5,7 @@ import SideBar from "./components/sidebar/SideBar";
 import Widgets from "./components/widgets/Widgets";
 import ProfileHeader from "./components/profile/ProfileHeader";
 import LoginForm from "./components/login/LoginForm";
+// import SignUp from "./components/signup/SignUp"; -A
 import { useState } from "react";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="app">
+
       {authUser ? (
         <>
           <SideBar />
@@ -30,6 +32,7 @@ function App() {
             setLogDetails={setLogDetails}
             setAuthUser={setAuthUser}
           />
+      {/* <SignUp /> */}
         </>
       )}
     </div>

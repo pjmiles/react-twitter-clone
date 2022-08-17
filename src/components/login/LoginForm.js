@@ -7,6 +7,7 @@ const LoginForm = ({ setAuthUser, closeModal }) => {
   const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [logErr, setLogErr] = useState("");
 
+
   const handleChange = (e) => {
     setLogDetails((state) => ({
       ...state,
@@ -23,6 +24,7 @@ const LoginForm = ({ setAuthUser, closeModal }) => {
     } catch (e) {
       setLogErr("Invalid login details");
       console.log(e);
+    
     }
   };
 

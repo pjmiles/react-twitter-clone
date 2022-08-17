@@ -2,7 +2,7 @@ import "./SignUp.css";
 import { FaTwitter } from "react-icons/fa";
 import { useState } from "react";
 import { axiosInstanceReg } from "../api/axios";
-import Login from "../login/LoginForm";
+import LoginForm from "../login/LoginForm";
 
 const SignUp = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -47,7 +47,7 @@ const SignUp = () => {
   return (
     <>
       {success ? (
-        <Login />
+        <LoginForm />
       ) : (
         <div className="signup-conatiner">
           <div className="signup-split signup-left">
@@ -162,7 +162,7 @@ const SignUp = () => {
           </div>
         </div>
       )}
-      {openModal && <Login closeModal={() => setOpenModal(false)} />}
+      {openModal && <LoginForm closeModal={() => setOpenModal(false)} />}
     </>
   );
 };

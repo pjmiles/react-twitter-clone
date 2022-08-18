@@ -1,22 +1,26 @@
+import '../profileEdit/ProfileEdit.css'
+
 const ProfileEdit = ({ closeEditModal }) => {
   return (
-    <div className="edit-profile">
-      <div>
-        <span onClick={() => closeEditModal(false)}>X</span>
-        <h1>Edit Profile</h1>
-        <button>Save</button>
+    <form className="edit-profile-form">
+      <div className="edit-profile-top">
+        <div className="edit-profile">
+          <span onClick={() => closeEditModal(false)}>X</span>
+          <h1>Edit Profile</h1>
+          <button>Save</button>
+        </div>
       </div>
 
-      <div>
-        <textarea>name</textarea>
+        <div>
+          <input type="text" placeholder="Name" />
 
-        <textarea>Bio</textarea>
+          <input type="text" placeholder="Bio" />
 
-        <textarea>Location</textarea>
+          <input type="text" placeholder="Location" />
 
-        <textarea>Website</textarea>
-      </div>
-    </div>
+          <input type="text" placeholder="Website" />
+        </div>
+    </form>
   );
 };
 

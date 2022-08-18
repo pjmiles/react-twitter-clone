@@ -3,6 +3,7 @@ body {
   --twitter-background: #e6ecf0;
   --error : red;
   --click: purple;
+  --dark: #0000;
 }
 
 *{

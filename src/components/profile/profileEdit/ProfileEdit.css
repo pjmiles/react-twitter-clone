@@ -1,0 +1,9 @@
+.edit-profile-form {
+    background-color: var(--dark);
+    height: 400px;
+    width: 400px;
+}
+
+.edit-profile-top {
+    display: flex;
+}

@@ -112,6 +112,6 @@ const SideBar = () => {
 * Repo created by [Ponmile](https://github.com/pjmiles), email: ponmileadebisi@gmail.com
 
 ## :pen: Contributors
-* Reviewer [Asycreek](https://github.com/Asylcreek)
+* Reviewer [Asylcreek](https://github.com/Asylcreek)
 * Frontend by [Ponmile](https://github.com/pjmiles) 
 * Backender [Osadolortech](https://github.com/osadolortech)

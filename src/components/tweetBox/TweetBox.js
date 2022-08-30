@@ -5,7 +5,7 @@ const TweetBox = () => {
     <div className="tweet-box">
       <form>
         <div className="tweet-box-input">
-          <img className="tweet-box-image" alt="imag"/>
+          <img alt="imag"/>
           <input 
           type="text" 
           placeholder="what's happening"
@@ -13,7 +13,7 @@ const TweetBox = () => {
         </div>
         <input 
           type="text" 
-          className="tweet-box-input"
+          className="tweet-box-image-input"
           placeholder="optional: Enter image URL"
           />
           <button className="tweet-box-tweet-btn">Tweet</button>

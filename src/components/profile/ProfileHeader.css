@@ -1,0 +1,82 @@
+.profile {
+    border-right: 1px solid var(--twitter-background);
+}
+
+.profile-head {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    min-width: 600px;
+    padding: 20px 20px;
+    height: 190px;
+    justify-content: space-between;
+}
+
+.profile-image-container {
+    text-align: left;
+}
+.profile-image {
+    width: 100px;
+    border-radius: 50px;
+    margin-top: 50px;
+}
+
+.profile-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name-head {
+    margin-bottom: 10px;
+}
+
+.profile-description {
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.profile-description > h4 {
+    margin-left: 10px;
+}
+
+.profile-follows {
+    border-bottom: 1px solid var(--twitter-background);
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px;
+}
+
+.profile-follows > h5 {
+    margin: 0 10px;
+}
+
+
+.profile-edit-btn {
+    background-color: var(--twitter-color);
+    border: none;
+    color: white;
+    border-radius: 30px;
+    height: 40px;
+    margin-top: 20px;
+    width: 100px;
+    margin-left: auto;
+    margin-top: 81px;
+    cursor: pointer;
+}
+
+.feeds-contain {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.feed-item {
+    cursor: pointer;
+    font-size: 17px;
+    margin-top: 15px;
+}
+
+.feed-item:hover {
+    border-bottom: 2px solid var(--twitter-color);
+}

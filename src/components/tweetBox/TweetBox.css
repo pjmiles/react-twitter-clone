@@ -21,3 +21,22 @@
     border: none;
     outline: none;
 }
+
+.tweet-box-image-input {
+    border: none;
+    padding: 10px;
+    outline: none;
+}
+
+.tweet-box-tweet-btn {
+    background-color: var(--twitter-color);
+    border: none;
+    color: white;
+    font-weight: 900;
+    text-transform: inherit;
+    border-radius: 30px;
+    height: 40px;
+    margin-top: 20px;
+    width: 80px;
+    margin-left: auto;
+}

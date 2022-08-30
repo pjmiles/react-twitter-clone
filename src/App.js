@@ -4,12 +4,13 @@ import Feed from "./components/Feed/Feed";
 import SideBar from "./components/sidebar/SideBar";
 import Widgets from "./components/widgets/Widgets";
 import ProfileHeader from "./components/profile/ProfileHeader";
-// import Login from "./components/login/Login";
-import SignUp from "./components/signup/SignUp";
+import LoginForm from "./components/login/LoginForm";
 import { useState } from "react";
 
 function App() {
+  const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [authUser, setAuthUser] = useState(false);
+
 
   return (
     <div className="app">
@@ -24,7 +25,11 @@ function App() {
         </>
       ) : (
         <>
-          <SignUp />
+          <LoginForm
+            logDetails={logDetails}
+            setLogDetails={setLogDetails}
+            setAuthUser={setAuthUser}
+          />
         </>
       )}
     </div>

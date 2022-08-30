@@ -2,9 +2,10 @@ import "./SignUp.css";
 import { FaTwitter } from "react-icons/fa";
 import { useState } from "react";
 import { axiosInstanceReg } from "../api/axios";
-import Login from "../login/Login";
+import Login from "../login/LoginForm";
 
 const SignUp = () => {
+  const [openModal, setOpenModal] = useState(false);
   const [details, setDetails] = useState({
     first_name: "",
     last_name: "",
@@ -15,6 +16,10 @@ const SignUp = () => {
   });
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const handleOpen = () => {
+    setOpenModal(true); //to toggle between signup and login
+  };
 
   const handleChange = (e) => {
     setDetails((state) => ({
@@ -35,10 +40,9 @@ const SignUp = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-      postRequest()
+    e.preventDefault();
+    postRequest();
   };
-
 
   return (
     <>
@@ -56,9 +60,11 @@ const SignUp = () => {
           <div className="signup-split signup-right">
             <h2 className="signup-form-header">Signup</h2>
             <form className="signup-centered" onSubmit={handleSubmit}>
-              <div className="signup-err">
-                <span className="signup-error">{errMsg}</span>
-              </div>
+              {errMsg && (
+                <div className="signup-err">
+                  <span className="signup-error">{errMsg}</span>
+                </div>
+              )}
               <div className="signup-input-container">
                 <label htmlFor="first_name" className="signup-label">
                   <input
@@ -88,12 +94,12 @@ const SignUp = () => {
                 </label>
               </div>
               <div className="signup-input-container">
-                <label htmlFor="username" className="signup-label">
+                <label htmlFor="signup_username" className="signup-label">
                   <input
                     type="text"
                     className="signup-input"
                     placeholder="username"
-                    id="username"
+                    id="signup_username"
                     name="username"
                     value={details.username}
                     onChange={handleChange}
@@ -115,12 +121,12 @@ const SignUp = () => {
                 </label>
               </div>
               <div className="signup-input-container">
-                <label htmlFor="password" className="signup-label">
+                <label htmlFor="signup_password" className="signup-label">
                   <input
                     type="password"
                     className="signup-input"
                     placeholder="password"
-                    id="password"
+                    id="signup_password"
                     name="password"
                     value={details.password}
                     onChange={handleChange}
@@ -146,10 +152,17 @@ const SignUp = () => {
               <div className="signup-button">
                 <button className="signup-btn">submit</button>
               </div>
+              <span className="signup-note">
+                Already have account{" "}
+                <span className="signup-click" onClick={handleOpen}>
+                  click here
+                </span>
+              </span>
             </form>
           </div>
         </div>
       )}
+      {openModal && <Login closeModal={() => setOpenModal(false)} />}
     </>
   );
 };

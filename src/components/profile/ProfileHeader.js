@@ -41,7 +41,6 @@ const ProfileHeader = () => {
             <li className="feed-item">Media</li>
             <li className="feed-item">Likes</li>
           </ul>
-
         </div>
       </div>
     </>

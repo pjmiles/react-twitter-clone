@@ -1,113 +1,156 @@
 import "./SignUp.css";
 import { FaTwitter } from "react-icons/fa";
 import { useState } from "react";
+import { axiosInstanceReg } from "../api/axios";
+import Login from "../login/Login";
 
 const SignUp = () => {
-  const [user, setUser] = useState({
-    name:"",
+  const [details, setDetails] = useState({
+    first_name: "",
+    last_name: "",
     username: "",
     email: "",
     password: "",
-    confirmPassword: ""
-  })
+    password_confirmation: "",
+  });
+  const [errMsg, setErrMsg] = useState("");
+  const [success, setSuccess] = useState(false);
 
-  const getUserDetails = () => {
-    setUser((state)=>({ 
-      ...state, [e.target.id]: e.target.value
-    }))
-  }
+  const handleChange = (e) => {
+    setDetails((state) => ({
+      ...state,
+      [e.target.name]: e.target.value.trim(),
+    }));
+  };
+
+  const postRequest = async () => {
+    try {
+      await axiosInstanceReg.post("/register", details);
+      setSuccess(true);
+    } catch (err) {
+      console.log(err);
+      setErrMsg(err.message);
+      setSuccess(false);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+      postRequest()
+  };
 
 
   return (
-    <div className="signup-conatiner">
-      <div className="signup-split signup-left">
-        <div className="signup-centered">
-          <h2>Twitter</h2>
-          <FaTwitter className="singup-logo" />
+    <>
+      {success ? (
+        <Login />
+      ) : (
+        <div className="signup-conatiner">
+          <div className="signup-split signup-left">
+            <div className="signup-centered">
+              <h1>Twitter</h1>
+              <FaTwitter className="singup-logo" />
+            </div>
+          </div>
+
+          <div className="signup-split signup-right">
+            <h2 className="signup-form-header">Signup</h2>
+            <form className="signup-centered" onSubmit={handleSubmit}>
+              <div className="signup-err">
+                <span className="signup-error">{errMsg}</span>
+              </div>
+              <div className="signup-input-container">
+                <label htmlFor="first_name" className="signup-label">
+                  <input
+                    type="text"
+                    className="signup-input"
+                    placeholder="first name"
+                    id="first_name"
+                    name="first_name"
+                    value={details.first_name}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
+              </div>
+              <div className="signup-input-container">
+                <label htmlFor="last_name" className="signup-label">
+                  <input
+                    type="text"
+                    className="signup-input"
+                    placeholder="last name"
+                    id="last_name"
+                    name="last_name"
+                    value={details.last_name}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
+              </div>
+              <div className="signup-input-container">
+                <label htmlFor="username" className="signup-label">
+                  <input
+                    type="text"
+                    className="signup-input"
+                    placeholder="username"
+                    id="username"
+                    name="username"
+                    value={details.username}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
+              </div>
+              <div className="signup-input-container">
+                <label htmlFor="email" className="signup-label">
+                  <input
+                    type="email"
+                    className="signup-input"
+                    placeholder="email"
+                    id="email"
+                    name="email"
+                    value={details.email}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
+              <div className="signup-input-container">
+                <label htmlFor="password" className="signup-label">
+                  <input
+                    type="password"
+                    className="signup-input"
+                    placeholder="password"
+                    id="password"
+                    name="password"
+                    value={details.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
+              </div>
+
+              <div className="signup-input-container">
+                <label htmlFor="confirmPassword" className="signup-label">
+                  <input
+                    type="Password"
+                    className="signup-input"
+                    placeholder="confirm password"
+                    id="password_confirmation"
+                    name="password_confirmation"
+                    value={details.password_confirmation}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
+              </div>
+              <div className="signup-button">
+                <button className="signup-btn">submit</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-
-      <div className="signup-split signup-right">
-        <h3 className="signup-form-header">Signup</h3>
-        <form className="signup-centered">
-          <div className="signup-input-container">
-            <label htmlFor="name" className="signup-label">
-              <input
-                type="text"
-                className="signup-input"
-                placeholder="name"
-                id="name"
-                onChange={getUserDetails}
-                required
-              />
-            </label>
-          </div>
-          <div className="signup-input-container">
-            <label htmlFor="username" className="signup-label">
-              <input
-                type="text"
-                className="signup-input"
-                placeholder="username"
-                id="username"
-                onChange={getUserDetails}
-                required
-              />
-            </label>
-          </div>
-          <div className="signup-input-container">
-            <label htmlFor="email" className="signup-label">
-              <input
-                type="email"
-                className="signup-input"
-                placeholder="email"
-                id="email"
-                onChange={getUserDetails}
-              />
-            </label>
-          </div>
-          <div className="signup-input-container">
-            <label htmlFor="dateOfBirth" className="signup-label">
-              <input
-                type="date"
-                className="signup-input"
-                placeholder="DOB"
-                id="dateOfBirth"
-                onChange={getUserDetails}
-              />
-            </label>
-          </div>
-          <div className="signup-input-container">
-            <label htmlFor="password" className="signup-label">
-              <input
-                type="password"
-                className="signup-input"
-                placeholder="password"
-                id="password"
-                onChange={getUserDetails}
-                required
-              />
-            </label>
-          </div>
-
-          <div className="signup-input-container">
-            <label htmlFor="confirmPassword" className="signup-label">
-              <input
-                type="Password"
-                className="signup-input"
-                placeholder="confirm password"
-                id="confirmPassword"
-                onChange={getUserDetails}
-                required
-              />
-            </label>
-          </div>
-          
-          <div className="signup-button">
-            <input type="submit" className="signup-btn" />
-          </div>
-        </form>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

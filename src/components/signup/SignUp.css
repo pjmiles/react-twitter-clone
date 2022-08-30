@@ -25,7 +25,7 @@
     transform: translate(-50%, -50%);
 }
 
-.signup-centered h2 {
+.signup-centered h1 {
     font-weight: 900;
     font-size: 3rem;
     color: white;
@@ -77,4 +77,11 @@
 
 .signup-label {
     margin-left: 12px;
+}
+
+.signup-err {
+    text-align: center;
+}
+.signup-error{
+    color: red;
 }

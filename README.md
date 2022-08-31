@@ -28,7 +28,7 @@
 ## :signal_strength: Technologies
 
 * [React](https://reactjs.org/) JS Library.
-* [python](https://www.python.org/) for backend logic.
+* [python](https://www.python.org/) for backend logic, link to [repo](https://github.com/osadolortech/twitter_clone).
 * [Postgresql](https://www.postgresql.org/) used for external database.
 * [CSS](https://nodejs.org/en/) for stlying.
 

@@ -3,7 +3,7 @@ import { FaTwitter } from "react-icons/fa";
 import { axiosInstanceLog } from "../api/axios";
 import "./LoginForm.css";
 
-const LoginForm = ({ setAuthUser, closeLoginModal }) => {
+const LoginForm = ({ closeLoginModal }) => {
   const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [logErr, setLogErr] = useState("");
 
@@ -20,7 +20,7 @@ const LoginForm = ({ setAuthUser, closeLoginModal }) => {
     try {
       const { data } = await axiosInstanceLog.post("login", logDetails);
       localStorage.setItem("logDetails", JSON.stringify(data));
-      setAuthUser(true)
+      // setAuthUser(true)
     } catch (e) {
       setLogErr("Invalid login details");
       console.log(e);

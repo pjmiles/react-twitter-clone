@@ -40,7 +40,6 @@ const LoginForm = ({ setAuthUser, closeLoginModal }) => {
         </div>
 
         <div className="login-split login-right">
-          <h2 className="login-header">Login</h2>
           {logErr && (
             <div className="log-error-container">
               <p className="log-error">{logErr}</p>
@@ -51,6 +50,7 @@ const LoginForm = ({ setAuthUser, closeLoginModal }) => {
             onSubmit={handleSubmit}
             key={logDetails.id}
           >
+          <h2 className="login-header">Login</h2>
             <div className="input-container">
               <label htmlFor="username" />
               <input

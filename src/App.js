@@ -17,16 +17,17 @@ function App() {
 
   return (
     <div className="app">
-      <Authenticated.Provider value={{ authUser, setAuthUser }}>
-        {authUser ? (
+      <Authenticated.Provider value={{ authUser }}>
           <>
-            <SideBar />
+            {/* <SideBar /> */}
             <Routes>
-              <Route path="/" element={<Feed />} />
+              <Route path="/home" element={<Feed />} />
               <Route path="/profile" element={<ProfileHeader />} />
+              <Route path="/" element={<LoginForm logged={localStorage.getItem("logDetails")}/>} />
             </Routes>
             <Widgets />
           </>
+        {/* {authUser ? (
         ) : (
           <>
             <LoginForm
@@ -35,8 +36,8 @@ function App() {
               setAuthUser={setAuthUser}
             />
           </>
-        )}
-        <SignUp openModal={openModal} setOpenModal={setOpenModal} />
+        )} */}
+        {/* <SignUp openModal={openModal} setOpenModal={setOpenModal} /> */}
       </Authenticated.Provider>
     </div>
   );

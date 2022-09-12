@@ -4,7 +4,7 @@ import { axiosInstanceLog } from "../api/axios";
 import "./LoginForm.css";
 
 const LoginForm = ({ setAuthUser, closeLoginModal, logged }) => {
-  if(logged)window.location.href = "/home"
+  // if(logged)window.location.href = "/home"
 
   const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [logErr, setLogErr] = useState("");

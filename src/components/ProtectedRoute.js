@@ -1,4 +1,4 @@
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../hooks/AuthContext";
 import { Navigate } from "react-router-dom";
 
 // component to check the state of our user from the useAuth hooh

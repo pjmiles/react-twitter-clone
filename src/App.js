@@ -21,16 +21,8 @@ function App() {
       {/* <Authenticated.Provider value={{ authUser }}> */}
       <>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <LoginForm />
-                <SignUp />
-              </>
-            }
-          />
-
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/register" element={<SignUp />}/>
           <Route
             path="/home"
             element={
@@ -52,7 +44,6 @@ function App() {
             }
           />
         </Routes>
-        <Widgets />
       </>
       {/* </Authenticated.Provider> */}
     </div>

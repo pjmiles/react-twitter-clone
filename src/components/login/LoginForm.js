@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { axiosInstanceLog } from "../api/axios";
 import "./LoginForm.css";
 
@@ -82,9 +83,9 @@ const LoginForm = ({ setAuthUser, closeLoginModal, logged }) => {
             </div>
             <span className="login-note">
               No account{" "}
-              <span className="login-click" onClick={() => closeLoginModal(false)}>
+              <Link to="/register" className="login-click" onClick={() => closeLoginModal(false)}>
                 click here
-              </span>
+              </Link>
             </span>
           </form>
         </div>

@@ -7,7 +7,8 @@ import ProfileHeader from "./components/profile/ProfileHeader";
 import LoginForm from "./components/login/LoginForm";
 import SignUp from "./components/signup/SignUp";
 import { useState, createContext } from "react";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoutes from "./components/ProtectedRoute";
+import Home from "./pages/Home";
 
 function App() {
   // const [logDetails, setLogDetails] = useState({ username: "", password: "" });
@@ -19,33 +20,21 @@ function App() {
   return (
     <div className="app">
       {/* <Authenticated.Provider value={{ authUser }}> */}
-      <>
-        <Routes>
-          <Route path="/" element={<LoginForm />} />
-          <Route path="/register" element={<SignUp />}/>
-          <Route
-            path="/home"
-            element={
-              <ProtectedRoute>
-                <SideBar />
-                <Feed />
-                <Widgets />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <SideBar />
-                <ProfileHeader />
-                <Widgets />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </>
+      {/* <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/profile" element={<SideBar />} />
+          <Route path="/profile" element={<ProfileHeader />} />
+        </Route>
+      </Routes> */}
       {/* </Authenticated.Provider> */}
+      <SideBar />
+      <Routes>
+        <Route path="/" element={<Feed />}/>
+        <Route path="/profile" element={<ProfileHeader />} />
+      </Routes>
+      <Widgets />
     </div>
   );
 }

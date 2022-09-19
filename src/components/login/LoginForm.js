@@ -2,11 +2,12 @@ import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { axiosInstanceLog } from "../api/axios";
+import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 
-const LoginForm = ({ setAuthUser, closeLoginModal, logged }) => {
+const LoginForm = ({ closeLoginModal, logged }) => {
   // if(logged)window.location.href = "/home"
-
+  const navigate = useNavigate()
   const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [logErr, setLogErr] = useState("");
 
@@ -22,7 +23,8 @@ const LoginForm = ({ setAuthUser, closeLoginModal, logged }) => {
     try {
       const { data } = await axiosInstanceLog.post("login", logDetails);
       localStorage.setItem("logDetails", JSON.stringify(data));
-      setAuthUser(true)
+      // setAuthUser(true)
+      navigate("/profile")
     } catch (e) {
       setLogErr("Invalid login details");
       console.log(e); 

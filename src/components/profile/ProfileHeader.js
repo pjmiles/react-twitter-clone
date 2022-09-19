@@ -1,5 +1,5 @@
 import "./ProfileHeader.css";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { axiosInstanceLog } from "../api/axios";
 import { useEffect, useState } from "react";
 import ProfileEdit from "./profileEdit/ProfileEdit";
@@ -74,6 +74,7 @@ const ProfileHeader = ({ closeEditModal }) => {
         </div>
       </div>
       {openEditModal && <ProfileEdit closeEditModal={() => setOpenEditModal(false)} />}
+      <Outlet />
     </>
   );
 };

@@ -10,7 +10,7 @@ import { IoMdListBox } from "react-icons/io";
 import { CgProfile, CgMoreO } from "react-icons/cg";
 import "./SideBar.css";
 import SideBarOptions from "../sidebarOptions/SideBarOptions";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const SideBar = () => {
   return (
@@ -29,6 +29,7 @@ const SideBar = () => {
       </NavLink>
       <SideBarOptions Icon={CgMoreO} text="More" />
       <button className="sidebar-tweet-btn">Tweet</button>
+      <Outlet />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 .profile {
     border-right: 1px solid var(--twitter-background);
+    flex: 0.42;
 }
 
 .profile-head {
@@ -7,7 +8,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     background-color: white;
-    min-width: 600px;
     padding: 20px 20px;
     height: 190px;
     justify-content: space-between;
@@ -47,8 +47,8 @@
     padding: 10px 10px;
 }
 
-.profile-follows > h5 {
-    margin: 0 10px;
+.profile-follows > p {
+    margin: 0 5px;
 }
 
 

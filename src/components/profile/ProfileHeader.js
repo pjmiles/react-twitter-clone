@@ -52,17 +52,17 @@ const ProfileHeader = ({ closeEditModal }) => {
           </div>
         </div>
         <div className="profile-description">
-          <h3 className="profile-description-text">
+          <p className="profile-description-text">
             Software Engineer | Business developer | Product designer
-          </h3>
+          </p>
         </div>
         <div className="profile-follows">
-          <h5>
+          <p className="follower-count">
             <Link to="">46 Following</Link>
-          </h5>
-          <h5>
-            <Link to="">120 Followers</Link>
-          </h5>
+          </p>
+          <p className="follower-count">
+            <Link to=""><span>120 Followers</span></Link>
+          </p>
         </div>
         <div className="profile-feeds">
           <ul className="feeds-contain">

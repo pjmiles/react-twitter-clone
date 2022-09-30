@@ -9,10 +9,11 @@ import SignUp from "./components/signup/SignUp";
 import { useState, createContext } from "react";
 import ProtectedRoutes from "./components/ProtectedRoute";
 import Home from "./pages/Home";
+import { AuthContext } from "./hooks/AuthContext";
 
 function App() {
   // const [logDetails, setLogDetails] = useState({ username: "", password: "" });
-  // const [authUser, setAuthUser] = useState(false);
+  const [authUser, setAuthUser] = useState(false);
   // const [openModal, setOpenModal] = useState(false);
 
   // const Authenticated = createContext(authUser);
@@ -29,12 +30,40 @@ function App() {
         </Route>
       </Routes> */}
       {/* </Authenticated.Provider> */}
-      <SideBar />
-      <Routes>
-        <Route path="/" element={<Feed />}/>
-        <Route path="/profile" element={<ProfileHeader />} />
-      </Routes>
-      <Widgets />
+      <AuthContext.Provider value={{ authUser, setAuthUser }}>
+        {authUser ? (
+          <>
+            {/* <SideBar /> */}
+            <Routes>
+              <Route path="/" element={<LoginForm />} />
+              <Route path="/register" element={<SignUp />} />
+              <Route
+                path="/profile"
+                element={
+                  <>
+                    <SideBar />
+                    <ProfileHeader />
+                    <Widgets />
+                  </>
+                }
+              />
+              <Route
+                path="/feeds"
+                element={
+                  <>
+                    <SideBar />
+                    <Feed />
+                    <Widgets />
+                  </>
+                }
+              />
+            </Routes>
+            {/* <Widgets /> */}
+          </>
+        ) : (
+          <LoginForm />
+        )}
+      </AuthContext.Provider>
     </div>
   );
 }

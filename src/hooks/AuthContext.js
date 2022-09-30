@@ -2,8 +2,15 @@ import { createContext, useContext, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // creating the context
-const AuthContext = createContext();
+export const AuthContext = createContext({});
 
+
+
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ * 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("user", null);
   const navigate = useNavigate();
@@ -29,3 +36,5 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
   return useContext(AuthContext);
 };
+
+ */

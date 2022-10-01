@@ -5,33 +5,46 @@ import SideBar from "./components/sidebar/SideBar";
 import Widgets from "./components/widgets/Widgets";
 import ProfileHeader from "./components/profile/ProfileHeader";
 import LoginForm from "./components/login/LoginForm";
+import SignUp from "./components/signup/SignUp";
 import { useState } from "react";
+import ProtectedRoutes from "./components/ProtectedRoute";
+// import Home from "./pages/Home";
+import { AuthContext } from "./hooks/AuthContext";
 
 function App() {
-  const [logDetails, setLogDetails] = useState({ username: "", password: "" });
+  // const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [authUser, setAuthUser] = useState(false);
-
 
   return (
     <div className="app">
-      {authUser ? (
-        <>
-          <SideBar />
-          <Routes>
-            <Route path="/" element={<Feed />} />
-            <Route path="/profile" element={<ProfileHeader />} />
-          </Routes>
-          <Widgets />
-        </>
-      ) : (
-        <>
-          <LoginForm
-            logDetails={logDetails}
-            setLogDetails={setLogDetails}
-            setAuthUser={setAuthUser}
-          />
-        </>
-      )}
+      <AuthContext.Provider value={{ authUser, setAuthUser }}>
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route
+              path="/profile"
+              element={
+                <>
+                  <SideBar />
+                  <ProfileHeader />
+                  <Widgets />
+                </>
+              }
+            />
+            <Route
+              path="/home"
+              element={
+                <>
+                  <SideBar />
+                  <Feed />
+                  <Widgets />
+                </>
+              }
+            />
+          </Route>
+        </Routes>
+      </AuthContext.Provider>
     </div>
   );
 }

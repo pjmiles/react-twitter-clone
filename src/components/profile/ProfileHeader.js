@@ -1,7 +1,38 @@
 import "./ProfileHeader.css";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import { axiosInstanceLog } from "../api/axios";
+import { useEffect, useState } from "react";
+import ProfileEdit from "./profileEdit/ProfileEdit";
 
-const ProfileHeader = () => {
+const ProfileHeader = ({ closeEditModal }) => {
+  // const [name, setName] = useState("")
+  // const [userName, setUserName] = useState("")
+  const [openEditModal, setOpenEditModal] = useState(false)
+
+  const handleOpenEditModal = () => {
+      setOpenEditModal(true)
+  }
+
+
+useEffect(() => {
+    const userInfo = async () => {
+      const logDetails = JSON.parse(localStorage.getItem("logDetails"));
+      console.log(logDetails)
+      try {
+        const userProfile = await axiosInstanceLog.get("/profile", {
+          headers: {
+            Authorization: `Bearer ${logDetails.token}`,
+          },
+        });
+        console.log(userProfile);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    userInfo();
+  }, []);
+  
+
   return (
     <>
       <div className="profile">
@@ -13,26 +44,26 @@ const ProfileHeader = () => {
               alt="profile pics"
             />
             <span className="profile-name">
-              <h1 className="profile-name-head">Alex Rohr</h1>
-              <h2 className="profile-name-follow">@alexrohr</h2>
+              <h1 className="profile-name-head">{}</h1>
+              <h2 className="profile-name-follow">@{}</h2>
             </span>
           </div>
           <div className="profile-info">
-            <button className="profile-edit-btn">Edit profile</button>
+            <button className="profile-edit-btn" onClick={handleOpenEditModal}>Edit profile</button>
           </div>
         </div>
         <div className="profile-description">
-          <h3 className="profile-description-text">
+          <p className="profile-description-text">
             Software Engineer | Business developer | Product designer
-          </h3>
+          </p>
         </div>
         <div className="profile-follows">
-          <h5>
+          <p className="follower-count">
             <Link to="">46 Following</Link>
-          </h5>
-          <h5>
-            <Link to="">120 Followers</Link>
-          </h5>
+          </p>
+          <p className="follower-count">
+            <Link to=""><span>120 Followers</span></Link>
+          </p>
         </div>
         <div className="profile-feeds">
           <ul className="feeds-contain">
@@ -43,6 +74,8 @@ const ProfileHeader = () => {
           </ul>
         </div>
       </div>
+      {openEditModal && <ProfileEdit closeEditModal={() => setOpenEditModal(false)} />}
+      <Outlet />
     </>
   );
 };

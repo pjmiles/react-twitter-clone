@@ -1,5 +1,8 @@
 .widgets {
     flex: 0.3;
+    position: sticky;
+    top: 0;
+    height: 100%;
 }
 
 .widgets-input {
@@ -28,5 +31,16 @@
     padding: 20px;
     background-color: #f5f8fa;
     border-radius: 20px;
+    height: 100%;
+}
 
+.widgets-container > ul {
+    list-style: none;
+}
+
+.widgets-container > ul > li {
+    margin: 30px 0;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
 }

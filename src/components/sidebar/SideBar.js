@@ -16,7 +16,7 @@ const SideBar = () => {
   return (
     <div className="sidebar">
       <FaTwitter className="sidebar-twitter-icon" />
-      <NavLink to="/feeds">
+      <NavLink to="/home">
         <SideBarOptions Icon={FaHome} text="Home" active />
       </NavLink>
       <SideBarOptions Icon={FaHashtag} text="Explore" />

@@ -14,7 +14,7 @@ const ProfileHeader = ({ closeEditModal }) => {
   }
 
 
-  useEffect(() => {
+useEffect(() => {
     const userInfo = async () => {
       const logDetails = JSON.parse(localStorage.getItem("logDetails"));
       console.log(logDetails)
@@ -31,6 +31,7 @@ const ProfileHeader = ({ closeEditModal }) => {
     };
     userInfo();
   }, []);
+  
 
   return (
     <>

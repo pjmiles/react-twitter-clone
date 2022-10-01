@@ -13,6 +13,8 @@ const LoginForm = ({ closeLoginModal, logged }) => {
   const [logDetails, setLogDetails] = useState({ username: "", password: "" });
   const [logErr, setLogErr] = useState("");
 
+
+
   const handleChange = (e) => {
     setLogDetails((state) => ({
       ...state,
@@ -26,10 +28,10 @@ const LoginForm = ({ closeLoginModal, logged }) => {
       const { data } = await axiosInstanceLog.post("login", logDetails);
       localStorage.setItem("logDetails", JSON.stringify(data));
       setAuthUser(data.user);
-      navigate("/profile");
-    } catch (e) {
-      setLogErr("Invalid login details");
-      console.log(e);
+      navigate("/profile", {replace: true});
+    } catch (err) {
+      setLogErr(err.message);
+      console.log(err);
     }
   };
 

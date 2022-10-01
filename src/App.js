@@ -7,7 +7,7 @@ import ProfileHeader from "./components/profile/ProfileHeader";
 import LoginForm from "./components/login/LoginForm";
 import SignUp from "./components/signup/SignUp";
 import { useState } from "react";
-// import ProtectedRoutes from "./components/ProtectedRoute";
+import ProtectedRoutes from "./components/ProtectedRoute";
 // import Home from "./pages/Home";
 import { AuthContext } from "./hooks/AuthContext";
 
@@ -18,9 +18,10 @@ function App() {
   return (
     <div className="app">
       <AuthContext.Provider value={{ authUser, setAuthUser }}>
-          <Routes>
-            <Route path="/" element={<LoginForm />} />
-            <Route path="/register" element={<SignUp />} />
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route element={<ProtectedRoutes />}>
             <Route
               path="/profile"
               element={
@@ -32,7 +33,7 @@ function App() {
               }
             />
             <Route
-              path="/feeds"
+              path="/home"
               element={
                 <>
                   <SideBar />
@@ -41,7 +42,8 @@ function App() {
                 </>
               }
             />
-          </Routes>
+          </Route>
+        </Routes>
       </AuthContext.Provider>
     </div>
   );

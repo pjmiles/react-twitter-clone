@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ProfileEdit from "./profileEdit/ProfileEdit";
 
 const ProfileHeader = ({ closeEditModal }) => {
-  // const [name, setName] = useState("")
+  const [name, setName] = useState({})
   // const [userName, setUserName] = useState("")
   const [openEditModal, setOpenEditModal] = useState(false)
 
@@ -17,13 +17,13 @@ const ProfileHeader = ({ closeEditModal }) => {
 useEffect(() => {
     const userInfo = async () => {
       const logDetails = JSON.parse(localStorage.getItem("logDetails"));
-      console.log(logDetails)
       try {
         const userProfile = await axiosInstanceLog.get("/profile", {
           headers: {
-            Authorization: `Bearer ${logDetails.token}`,
+            Authorization: `Bearer ${logDetails.token.access}`,
           },
         });
+        setName(userProfile.data)
         console.log(userProfile);
       } catch (e) {
         console.log(e);
@@ -44,7 +44,7 @@ useEffect(() => {
               alt="profile pics"
             />
             <span className="profile-name">
-              <h1 className="profile-name-head">{}</h1>
+              <h1 className="profile-name-head">{name}</h1>
               <h2 className="profile-name-follow">@{}</h2>
             </span>
           </div>

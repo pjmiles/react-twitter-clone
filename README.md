@@ -84,12 +84,29 @@ const LoginForm = ({ setAuthUser, closeLoginModal }) => {
       console.log(e);
     
     }
+route-adjust
   }; 
+=======
+  };
+  
+main
 ```
 
 * `sideBar/SideBar.js` - A SideBar component returning SideBarOptions with Icons.
 ```javascript
+ route-adjust
 const SideBar = () => {
+
+import { FaTwitter, FaHome, FaHashtag, FaBell, FaEnvelope, FaBookmark } from 'react-icons/fa'
+import { IoMdListBox } from 'react-icons/io'
+import { CgProfile, CgMoreO } from 'react-icons/cg'
+import './SideBar.css'
+import SideBarOptions from '../sidebarOptions/SideBarOptions';
+import { NavLink } from 'react-router-dom';
+
+const SideBar = () => {
+
+ main
   return (
     <div className="sidebar">
         <FaTwitter className="sidebar-twitter-icon"/>
@@ -102,6 +119,7 @@ const SideBar = () => {
     <NavLink to="/profile"><SideBarOptions Icon={CgProfile} text="Profile" /></NavLink>
     <SideBarOptions Icon={CgMoreO} text="More"/>
     <button className='sidebar-tweet-btn'>Tweet</button>
+
 ```
 
 ## :cool: Live-Solution
@@ -110,9 +128,13 @@ const SideBar = () => {
 
 ## :clipboard: Status & To-Do List
 
+
 * Status: Basic working app that saves tweets to external database.
 * User can signup and sign in with their details. It uses only their username and password to login. 
 * To-Do: Correct `ProfileEdit.js` Component and perfect it stlying. Implement `Tweet` function and `retweet` function. 
+* Status: basic working app that saves tweets to external database.
+* To-Do: Correct `ProfileEdit.js` Component and perfect it stlying. Implement `Tweet` function and `retweet` function.
+
 
 ## :clap: Inspiration
 
